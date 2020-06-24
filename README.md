@@ -9,6 +9,8 @@ The actual implementation of REST endpoints is demonstrated with different Java 
 * Spring Boot + Spring Data (see: [cnj-rest-backend-spring](cnj-rest-backend-spring/README.md))
 * Quarkus (see: [cnj-rest-backend-quarkus](cnj-rest-backend-quarkus/README.md))
 
+TODO: add downstream sample to add REST clients
+
 ## Status
 ![Build status](https://drone.at.automotive.msg.team/api/badges/cloudtrain/cnj-rest/status.svg)
 
