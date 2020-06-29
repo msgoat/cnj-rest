@@ -22,7 +22,7 @@ public class GrantedPermissionsController {
     GrantedPermissionManager boundary;
 
     @GetMapping
-    public ResponseEntity<List<GrantedPermission>> getPermissionsByProjectName(@RequestParam(name = "projectName") String projectName) {
-        return ResponseEntity.ok(this.boundary.getGrantedPermissionsByProject(projectName));
+    public ResponseEntity<List<GrantedPermission>> getPermissionsByCurrentUser() {
+        return ResponseEntity.ok(this.boundary.getGrantedPermissionsByCurrentUser());
     }
 }

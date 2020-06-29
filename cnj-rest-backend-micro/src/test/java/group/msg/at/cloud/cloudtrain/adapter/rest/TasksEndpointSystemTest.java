@@ -107,7 +107,6 @@ public class TasksEndpointSystemTest {
                 .post("api/v1/tasks")
                 .andReturn();
         String location = postResponse.header("location");
-        System.out.println("location: [" + location + "]");
         if (location != null) {
             this.trashBin.add(location);
         }

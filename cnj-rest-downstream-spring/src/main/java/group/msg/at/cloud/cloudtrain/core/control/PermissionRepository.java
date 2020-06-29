@@ -34,4 +34,14 @@ public class PermissionRepository {
         }
         return result;
     }
+
+    public List<Permission> getPermissionsByUser(@NotNull String userName) {
+        List<Permission> result = new ArrayList<>();
+        for (Permission current : permissions) {
+            if ((current.getUserName().equals(userName) || "*".equals(current.getUserName()))) {
+                result.add(current);
+            }
+        }
+        return result;
+    }
 }

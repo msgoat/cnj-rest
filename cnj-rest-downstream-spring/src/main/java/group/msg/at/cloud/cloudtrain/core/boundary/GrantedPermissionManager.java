@@ -22,9 +22,9 @@ public class GrantedPermissionManager {
     @Autowired
     private PermissionRepository repository;
 
-    public List<GrantedPermission> getGrantedPermissionsByProject(@NotNull String projectName) {
+    public List<GrantedPermission> getGrantedPermissionsByCurrentUser() {
         List<GrantedPermission> result = new ArrayList<>();
-        List<Permission> permissions = repository.getPermissionsByUserAndProject(SecurityContextHolder.getContext().getAuthentication().getName(),projectName);
+        List<Permission> permissions = repository.getPermissionsByUser(SecurityContextHolder.getContext().getAuthentication().getName());
         permissions.forEach(p -> result.add(new GrantedPermission(p)));
         return result;
     }

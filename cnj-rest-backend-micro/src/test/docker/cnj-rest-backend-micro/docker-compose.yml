@@ -8,15 +8,12 @@ version: '3'
 
 services:
 
-  postgres:
-    image: postgres:11-alpine
+  downstream:
+    image: docker.at41tools.k8s.aws.msgoat.eu/cloudtrain/cnj-rest-downstream-spring:latest
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: changeit
-      POSTGRES_PORT: "5432"
-      POSTGRES_DB: cloudtrain
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
+      SPRING_PROFILES_ACTIVE: cloud
+      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI: https://iam.at41tools.k8s.aws.msgoat.eu/auth/realms/cloudtrain/protocol/openid-connect/certs
+      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI: https://iam.at41tools.k8s.aws.msgoat.eu/auth/realms/cloudtrain
 
   backend:
     image: docker.at41tools.k8s.aws.msgoat.eu/cloudtrain/cnj-rest-backend-micro:latest
@@ -25,14 +22,6 @@ services:
     environment:
       MP_JWT_VERIFY_PUBLICKEY_LOCATION: "https://iam.at41tools.k8s.aws.msgoat.eu/auth/realms/cloudtrain/protocol/openid-connect/certs"
       MP_JWT_VERIFY_ISSUER: "https://iam.at41tools.k8s.aws.msgoat.eu/auth/realms/cloudtrain"
-      POSTGRES_DB_USER: postgres
-      POSTGRES_DB_PASSWORD: changeit
-      POSTGRES_DB_NAME: cloudtrain
-      POSTGRES_DB_HOST: postgres
-      POSTGRES_DB_PORT: 5432
+      GROUP_MSG_AT_CLOUD_CLOUDTRAIN_ADAPTER_REST_DOWNSTREAM_GRANTEDPERMISSIONSCLIENT_MP_REST_URL: "http://downstream:8080"
     depends_on:
-      - postgres
-
-volumes:
-
-  postgres-data:
+      - downstream

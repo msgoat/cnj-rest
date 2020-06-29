@@ -39,6 +39,8 @@ spec:
               value: {{ .Values.security.oidc.jwksUri | quote }}
             - name: MP_JWT_VERIFY_ISSUER
               value: {{ .Values.security.oidc.issuer | quote }}
+            - name: GROUP_MSG_AT_CLOUD_CLOUDTRAIN_ADAPTER_REST_DOWNSTREAM_GRANTEDPERMISSIONSCLIENT_MP_REST_URL
+              value: {{ .Values.downstream.rest.url | quote }}
 {{- if .Values.image.pullSecret }}
       imagePullSecrets:
         - name: {{ .Values.image.pullSecret }}

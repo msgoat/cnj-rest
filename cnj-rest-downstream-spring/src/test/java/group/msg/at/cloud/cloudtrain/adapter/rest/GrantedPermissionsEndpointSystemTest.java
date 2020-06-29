@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
+import javax.json.JsonValue;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UncheckedIOException;
@@ -52,7 +53,6 @@ public class GrantedPermissionsEndpointSystemTest {
     public void getWithProjectNameReturnsExpectedPermissions() {
         ExtractableResponse response = given().log().body(true).auth().oauth2(fixture.getAccessToken())
                 .accept(ContentType.JSON)
-                .param("projectName", "cloudtrain")
                 .get("api/v1/grantedPermissions")
                 .then()
                 .statusCode(200)
