@@ -12,7 +12,7 @@ The actual implementation of REST endpoints is demonstrated with different Java 
 All applications are using a common downstream service [cnj-rest-downstream-spring](cnj-rest-downstream-spring/README.md)
 
 ## Status
-![Build status](https://drone.at.automotive.msg.team/api/badges/cloudtrain/cnj-rest/status.svg)
+![Build status](https://drone.at.automotive.msg.team/api/badges/msgoat/cnj-rest/status.svg)
 
 ## Build this showcase 
 
