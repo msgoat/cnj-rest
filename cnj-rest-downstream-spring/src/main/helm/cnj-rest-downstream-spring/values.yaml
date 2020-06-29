@@ -1,4 +1,4 @@
-# Default values for cnj-rest-backend-javaee.
+# Default values for cnj-rest-downstream-spring.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -11,9 +11,9 @@ image:
 
 probes:
   readiness:
-    path: /api/v1/probes/readiness
+    path: /actuator/health
   liveness:
-    path: /api/v1/probes/liveness
+    path: /actuator/health
 
 nameOverride: ""
 fullnameOverride: ""

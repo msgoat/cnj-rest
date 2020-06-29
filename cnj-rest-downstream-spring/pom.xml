@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>group.msg.at.cloud</groupId>
-    <artifactId>cnj-rest-backend-spring</artifactId>
+    <artifactId>cnj-rest-downstream-spring</artifactId>
     <version>${revision}${changelist}${sha1}</version>
     <packaging>jar</packaging>
-    <description>Cloud native Java backend based on Spring Boot using Spring Web to expose and consume REST endpoints</description>
+    <description>Cloud native Java application based on Spring Boot acting as a downstream service consumed by the other backends</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -57,7 +57,7 @@
         <maven.docker.plugin.version>0.33.0</maven.docker.plugin.version>
         <maven.helm.plugin.version>2.0.1</maven.helm.plugin.version>
         <!-- new Maven version management -->
-        <revision>4.0.0</revision>
+        <revision>1.0.0</revision>
         <sha1></sha1>
         <changelist></changelist>
     </properties>

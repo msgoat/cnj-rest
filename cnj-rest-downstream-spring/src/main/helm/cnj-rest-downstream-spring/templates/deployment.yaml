@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "cnj-rest-backend-javaee.fullname" . }}
+  name: {{ include "cnj-rest-downstream-spring.fullname" . }}
   labels:
-    {{- include "cnj-rest-backend-javaee.labels" . | nindent 4 }}
+    {{- include "cnj-rest-downstream-spring.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "cnj-rest-backend-javaee.selectorLabels" . | nindent 6 }}
+      {{- include "cnj-rest-downstream-spring.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "cnj-rest-backend-javaee.labels" . | nindent 8 }}
+        {{- include "cnj-rest-downstream-spring.labels" . | nindent 8 }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
@@ -35,9 +35,11 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
-            - name: MP_JWT_VERIFY_PUBLICKEY_LOCATION
+            - name: SPRING_PROFILES_ACTIVE
+              value: cloud
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI
               value: {{ .Values.security.oidc.jwksUri | quote }}
-            - name: MP_JWT_VERIFY_ISSUER
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
               value: {{ .Values.security.oidc.issuer | quote }}
 {{- if .Values.image.pullSecret }}
       imagePullSecrets:

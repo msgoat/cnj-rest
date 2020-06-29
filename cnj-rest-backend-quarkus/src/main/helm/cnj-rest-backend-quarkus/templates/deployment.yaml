@@ -39,15 +39,6 @@ spec:
               value: {{ .Values.security.oidc.jwksUri | quote }}
             - name: MP_JWT_VERIFY_ISSUER
               value: {{ .Values.security.oidc.issuer | quote }}
-            - name: QUARKUS_DATASOURCE_USERNAME
-              value: {{ .Values.persistence.postgres.user }}
-            - name: QUARKUS_DATASOURCE_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.persistence.postgres.secret.name }}
-                  key: {{ .Values.persistence.postgres.secret.keys.password }}
-            - name: QUARKUS_DATASOURCE_JDBC_URL
-              value: "jdbc:postgresql://{{ .Values.persistence.postgres.host }}:{{ .Values.persistence.postgres.port }}/{{ .Values.persistence.postgres.database }}"
 {{- if .Values.image.pullSecret }}
       imagePullSecrets:
         - name: {{ .Values.image.pullSecret }}

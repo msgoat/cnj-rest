@@ -11,6 +11,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
     <modules>
+        <module>cnj-rest-downstream-spring</module>
         <module>cnj-rest-backend-javaee</module>
         <module>cnj-rest-backend-micro</module>
         <module>cnj-rest-backend-spring</module>
