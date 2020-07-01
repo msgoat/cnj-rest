@@ -41,6 +41,8 @@ spec:
               value: {{ .Values.security.oidc.jwksUri | quote }}
             - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
               value: {{ .Values.security.oidc.issuer | quote }}
+            - name: CLOUDTRAIN_SERVICES_DOWNSTREAM_URL
+              value: {{ .Values.downstream.rest.url | quote }}
 {{- if .Values.image.pullSecret }}
       imagePullSecrets:
         - name: {{ .Values.image.pullSecret }}
