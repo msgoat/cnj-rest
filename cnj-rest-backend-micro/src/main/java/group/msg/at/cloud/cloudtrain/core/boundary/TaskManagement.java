@@ -52,6 +52,7 @@ public class TaskManagement {
     }
 
     public List<Task> getAllTasks() {
+        verifier.requirePermission("TASK_READ");
         return this.repository.getAllTasks();
     }
 }
