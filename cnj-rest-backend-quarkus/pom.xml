@@ -130,6 +130,10 @@
             <version>${common.web.version}</version>
         </dependency>
         <!-- showcase specific section -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-rest-client</artifactId>
+        </dependency>
         <!-- =========================== -->
         <!-- test time dependencies      -->
         <!-- =========================== -->
