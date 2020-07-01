@@ -129,6 +129,10 @@
             <version>${common.web.version}</version>
         </dependency>
         <!-- showcase specific section -->
+        <dependency>
+            <groupId>org.eclipse.microprofile.rest.client</groupId>
+            <artifactId>microprofile-rest-client-api</artifactId>
+        </dependency>
         <!-- =========================== -->
         <!-- test time dependencies      -->
         <!-- =========================== -->
