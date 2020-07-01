@@ -1,7 +1,7 @@
 package group.msg.at.cloud.cloudtrain.core.control;
 
-import group.msg.at.cloud.cloudtrain.adapter.rest.downstream.GrantedPermission;
-import group.msg.at.cloud.cloudtrain.adapter.rest.downstream.GrantedPermissionsClient;
+import group.msg.at.cloud.cloudtrain.adapter.rest.grantedpermissions.GrantedPermission;
+import group.msg.at.cloud.cloudtrain.adapter.rest.grantedpermissions.GrantedPermissionsClient;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.enterprise.context.Dependent;

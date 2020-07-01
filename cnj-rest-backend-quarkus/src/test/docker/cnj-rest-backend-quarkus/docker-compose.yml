@@ -22,6 +22,6 @@ services:
     environment:
       MP_JWT_VERIFY_PUBLICKEY_LOCATION: "https://iam.at41tools.k8s.aws.msgoat.eu/auth/realms/cloudtrain/protocol/openid-connect/certs"
       MP_JWT_VERIFY_ISSUER: "https://iam.at41tools.k8s.aws.msgoat.eu/auth/realms/cloudtrain"
-      GROUP_MSG_AT_CLOUD_CLOUDTRAIN_ADAPTER_REST_DOWNSTREAM_GRANTEDPERMISSIONSCLIENT_MP_REST_URL: "http://downstream:8080"
+      CLOUDTRAIN_SERVICES_GRANTEDPERMISSIONS_MP_REST_URL: "http://downstream:8080"
     depends_on:
       - downstream

@@ -1,4 +1,4 @@
-package group.msg.at.cloud.cloudtrain.adapter.rest.downstream;
+package group.msg.at.cloud.cloudtrain.adapter.rest.grantedpermissions;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
