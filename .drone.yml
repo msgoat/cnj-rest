@@ -9,7 +9,7 @@ steps:
     privileged: true
     commands:
       - start-docker.sh
-      - mvn clean deploy -f cnj-rest-downstream-spring/pom.xml -B -ff -e -V -U -P commit-stage -Dchangelist=.${DRONE_BRANCH} -Dsha1=.${DRONE_COMMIT_SHA:0:8}
+      - mvn clean deploy -f cnj-rest-downstream-spring/pom.xml -B -ff -e -V -U -P commit-stage -Dchangelist=.${DRONE_BRANCH} -Dsha1=.${DRONE_COMMIT_SHA:0:8} -Dtest.target.readinessProbe.failureThreshold=10
   - name: downstream-integration-test-stage
     image: docker.at41tools.k8s.aws.msgoat.eu/cloudtrain/cnj-drone-build:1.1.0
     commands:
@@ -19,7 +19,7 @@ steps:
     privileged: true
     commands:
       - start-docker.sh
-      - mvn clean deploy -f cnj-rest-backend-javaee/pom.xml -B -ff -e -V -U -P commit-stage -Dchangelist=.${DRONE_BRANCH} -Dsha1=.${DRONE_COMMIT_SHA:0:8}
+      - mvn clean deploy -f cnj-rest-backend-javaee/pom.xml -B -ff -e -V -U -P commit-stage -Dchangelist=.${DRONE_BRANCH} -Dsha1=.${DRONE_COMMIT_SHA:0:8} -Dtest.target.readinessProbe.failureThreshold=10
   - name: javaee-integration-test-stage
     image: docker.at41tools.k8s.aws.msgoat.eu/cloudtrain/cnj-drone-build:1.1.0
     commands:
@@ -29,7 +29,7 @@ steps:
     privileged: true
     commands:
       - start-docker.sh
-      - mvn clean deploy -f cnj-rest-backend-micro/pom.xml -B -ff -e -V -U -P commit-stage -Dchangelist=.${DRONE_BRANCH} -Dsha1=.${DRONE_COMMIT_SHA:0:8}
+      - mvn clean deploy -f cnj-rest-backend-micro/pom.xml -B -ff -e -V -U -P commit-stage -Dchangelist=.${DRONE_BRANCH} -Dsha1=.${DRONE_COMMIT_SHA:0:8} -Dtest.target.readinessProbe.failureThreshold=10
   - name: micro-integration-test-stage
     image: docker.at41tools.k8s.aws.msgoat.eu/cloudtrain/cnj-drone-build:1.1.0
     privileged: true
@@ -41,7 +41,7 @@ steps:
     privileged: true
     commands:
       - start-docker.sh
-      - mvn clean deploy -f cnj-rest-backend-spring/pom.xml -B -ff -e -V -U -P commit-stage -Dchangelist=.${DRONE_BRANCH} -Dsha1=.${DRONE_COMMIT_SHA:0:8}
+      - mvn clean deploy -f cnj-rest-backend-spring/pom.xml -B -ff -e -V -U -P commit-stage -Dchangelist=.${DRONE_BRANCH} -Dsha1=.${DRONE_COMMIT_SHA:0:8} -Dtest.target.readinessProbe.failureThreshold=10
   - name: spring-integration-test-stage
     image: docker.at41tools.k8s.aws.msgoat.eu/cloudtrain/cnj-drone-build:1.1.0
     commands:
@@ -51,7 +51,7 @@ steps:
     privileged: true
     commands:
       - start-docker.sh
-      - mvn clean deploy -f cnj-rest-backend-quarkus/pom.xml -B -ff -e -V -U -P commit-stage -Dchangelist=.${DRONE_BRANCH} -Dsha1=.${DRONE_COMMIT_SHA:0:8}
+      - mvn clean deploy -f cnj-rest-backend-quarkus/pom.xml -B -ff -e -V -U -P commit-stage -Dchangelist=.${DRONE_BRANCH} -Dsha1=.${DRONE_COMMIT_SHA:0:8} -Dtest.target.readinessProbe.failureThreshold=10
   - name: quarkus-integration-test-stage
     image: docker.at41tools.k8s.aws.msgoat.eu/cloudtrain/cnj-drone-build:1.1.0
     commands:
