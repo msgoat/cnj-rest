@@ -50,8 +50,8 @@ public class GrantedPermissionsEndpointSystemTest {
     }
 
     @Test
-    public void getWithProjectNameReturnsExpectedPermissions() {
-        ExtractableResponse response = given().log().body(true).auth().oauth2(fixture.getAccessToken())
+    public void getPermissionsReturnsExpectedPermissions() {
+        ExtractableResponse response = given().log().body(true).auth().oauth2(fixture.getToken())
                 .accept(ContentType.JSON)
                 .get("api/v1/grantedPermissions")
                 .then()
@@ -60,6 +60,15 @@ public class GrantedPermissionsEndpointSystemTest {
                 .extract();
         JsonArray permissions = asJsonArray(response);
         assertFalse(permissions.isEmpty(), "permissions must not be empty!");
+    }
+
+    @Test
+    public void getPermissionsWithoutTokenReturns401() {
+        given().log().body(true)
+                .accept(ContentType.JSON)
+                .get("api/v1/grantedPermissions")
+                .then()
+                .statusCode(401);
     }
 
     private JsonArray asJsonArray(ExtractableResponse response) {
