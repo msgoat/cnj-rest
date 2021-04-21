@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "cnj-rest-downstream-spring.selectorLabels" . | nindent 6 }}
+    {{- include "cnj-rest-downstream-spring.selectorLabels" . | nindent 4 }}

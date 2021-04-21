@@ -14,6 +14,10 @@ All applications are using a common downstream service [cnj-rest-downstream-spri
 ## Status
 ![Build status](https://drone.at.automotive.msg.team/api/badges/msgoat/cnj-rest/status.svg)
 
+## Release information
+
+Check [changelog](changelog.md) for latest version and release information.
+
 ## Build this showcase 
 
 ### Prerequisites
