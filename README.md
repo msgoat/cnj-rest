@@ -1,5 +1,7 @@
 # cnj-rest
 
+> __@deprecated:__ please check dedicated repos `cnj-rest-*` for each showcase.
+
 Showcase of a simple cloud native Java application exposing REST endpoints (provider-side) and calling REST endpoints (consumer-side).
 
 The actual implementation of REST endpoints is demonstrated with different Java backend technologies:
